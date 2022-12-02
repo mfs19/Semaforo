@@ -71,16 +71,16 @@ module ControladorSemaforo(
         s4,s5,s6:
           begin
             Va = 1'b1;
-            Aap = 1'b1;
-            Ab = 1'b1;
-            Vebp = 1'b1;
+            Veap = 1'b1;
+            Veb = 1'b1;
+            Vbp = 1'b1;
           end
         s7:
           begin
             Va = 1'b1;
-            Veap = 1'b1;
+            Aap = 1'b1;
             Ab = 1'b1;
-            Vebp = 1'b1;
+            Vbp = 1'b1;
           end
       endcase
     end
