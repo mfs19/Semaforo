@@ -7,29 +7,40 @@ entity stage_e is
         clock         : in  std_logic;
         reset         : in  std_logic;
         -- ID/EX regs inputs:
-        data_reg_s1_e : in std_logic_vector(31 downto 0);
-        data_reg_s2_e : in std_logic_vector(31 downto 0);
-        pc_e          : in std_logic_vector(31 downto 0);
-        imm_ext_e     : in std_logic_vector(31 downto 0);
-
+        BEX_Ra : in std_logic_vector(31 downto 0);
+        BEX_Rb : in std_logic_vector(31 downto 0);
+        BEX_PC          : in std_logic_vector(31 downto 0);
+        BEX_IMM     : in std_logic_vector(31 downto 0);
         -- ID/EX control regs:
-        alu_control_e : in std_logic_vector(2 downto 0);
-        alu_src_e     : in std_logic;
+        BEX_ALUcontrolE : in std_logic_vector(2 downto 0);
+        BEX_ALUSrc     : in std_logic;
+        -- Exception:
+        ExceptionEnable : in std_logic;
+        EX_Flush: in std_logic;
         -- Inputs of forwarding mux
-        alu_result_m  : in std_logic_vector(31 downto 0);
-        result_w      : in std_logic_vector(31 downto 0);
+        BMEM_aluOut  : in std_logic_vector(31 downto 0);
+        WB_DMem      : in std_logic_vector(31 downto 0);
         -- Forwarding unit:
-        forwarding_a_e : in std_logic_vector(1 downto 0);
-        forwarding_b_e : in std_logic_vector(1 downto 0);
-        -- Outputs:
+        forward_a_e : in std_logic_vector(1 downto 0);
+        forward_b_e : in std_logic_vector(1 downto 0);
+        -- Saídas:
         ALUResultE_out   : out  std_logic_vector(31 downto 0);
         WriteDataE_out   : out  std_logic_vector(31 downto 0);
         PCPlus4E_out      : out  std_logic_vector(31 downto 0);
-        RdE_out           : out  std_logic_vector(4 downto 0);
+        RdE_out           : out  std_logic_vector(4 downto 0)
 
     );
 end entity stage_e;
 
+
+
+
+
+
+
+
+
+    
 
 entity BMEM is
     port (
