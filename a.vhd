@@ -54,4 +54,4 @@ entity BMEM is
         BMEM_writeDataReg : out std_logic_vector(4 downto 0);
         BMEM_Plus4Addr: out std_logic_vector(31 downto 0)
     );
-end entity pipe_regE;
+end entity BMEM;
